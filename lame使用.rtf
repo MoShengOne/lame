@@ -1,0 +1,81 @@
+{\rtf1\ansi\ansicpg936\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset134 PingFangSC-Regular;\f2\froman\fcharset0 Times-Roman;
+}
+{\colortbl;\red255\green255\blue255;\red15\green116\blue1;\red170\green12\blue145;\red92\green38\blue153;
+\red46\green13\blue110;\red28\green2\blue207;\red196\green26\blue22;\red100\green56\blue32;\red63\green110\blue116;
+\red38\green71\blue75;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f0\fs22 \cf0 \expnd0\expndtw0\kerning0
+wav 
+\f1 \'d7\'aa
+\f0  MP3\'a0
+\f1 \'ca\'b9\'d3\'c3
+\f0 lame
+\f1 \'bf\'e2
+\f2\fs24 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f0\fs22 \cf2 //wav\cf0  
+\f1 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \'d7\'aa
+\f0 \AppleTypeServices \cf0  \cf2 mp3\cf0 \
+\'a0\'a0\'a0 \cf3 @try\cf0  \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \cf3 int\cf0  read, write;\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \cf4 FILE\cf0  *pcm = \cf5 fopen\cf0 ([wavStr \cf5 cStringUsingEncoding\cf0 :\cf6 1\cf0 ], \cf7 "rb"\cf0 );\'a0 \cf2 //source\cf0  
+\f1 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \'b1\'bb\'d7\'aa\'bb\'bb\'b5\'c4\'d2\'f4\'c6\'b5\'ce\'c4\'bc\'fe\'ce\'bb\'d6\'c3
+\f0 \AppleTypeServices \cf0 \
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \cf5 fseek\cf0 (pcm, \cf6 4\cf0 *\cf6 1024\cf0 , \cf8 SEEK_CUR\cf0 ); \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \cf2 //skip file header\cf0 \
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \cf4 FILE\cf0  *mp3 = \cf5 fopen\cf0 ([mp3Str \cf5 cStringUsingEncoding\cf0 :\cf6 1\cf0 ], \cf7 "wb"\cf0 );\'a0 \cf2 //output\cf0  
+\f1 \AppleTypeServices\AppleTypeServicesF65539 \cf2 \'ca\'e4\'b3\'f6\'c9\'fa\'b3\'c9\'b5\'c4
+\f0 \AppleTypeServices Mp3
+\f1 \AppleTypeServices\AppleTypeServicesF65539 \'ce\'c4\'bc\'fe\'ce\'bb\'d6\'c3
+\f0 \AppleTypeServices \cf0 \
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \cf3 const\cf0  \cf3 int\cf0  PCM_SIZE = \cf6 8192\cf0 ;\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \cf3 const\cf0  \cf3 int\cf0  MP3_SIZE = \cf6 8192\cf0 ;\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \cf3 short\cf0  \cf3 int\cf0  pcm_buffer[PCM_SIZE*\cf6 2\cf0 ];\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \cf3 unsigned\cf0  \cf3 char\cf0  mp3_buffer[MP3_SIZE];\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \cf9 lame_t\cf0  lame = \cf10 lame_init\cf0 ();\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \cf10 lame_set_in_samplerate\cf0 (lame, \cf6 44100.0\cf0 );\cf2 //
+\f1 \AppleTypeServices\AppleTypeServicesF65539 \'c6\'b5\'c2\'ca\'c9\'e8\'d6\'c3\'cf\'e0\'cd\'ac\'a3\'ac\'b7\'f1\'d4\'f2\'d2\'f4\'c6\'b5\'bb\'e1\'b1\'e4\'c9\'f9\'ca\'b1\'bc\'e4\'cd\'cf\'b3\'a4
+\f0 \AppleTypeServices \cf0 \
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \cf10 lame_set_VBR\cf0 (lame, \cf10 vbr_default\cf0 );\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \cf10 lame_init_params\cf0 (lame);\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \cf3 do\cf0  \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 read = \cf5 fread\cf0 (pcm_buffer, \cf6 2\cf0 *\cf3 sizeof\cf0 (\cf3 short\cf0  \cf3 int\cf0 ), PCM_SIZE, pcm);\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \cf3 if\cf0  (read == \cf6 0\cf0 )\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 write = \cf10 lame_encode_flush\cf0 (lame, mp3_buffer, MP3_SIZE);\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \cf3 else\cf0 \
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 write = \cf10 lame_encode_buffer_interleaved\cf0 (lame, pcm_buffer, read, mp3_buffer, MP3_SIZE);\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \cf5 fwrite\cf0 (mp3_buffer, write, \cf6 1\cf0 , mp3);\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \} \cf3 while\cf0  (read != \cf6 0\cf0 );\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \cf10 lame_close\cf0 (lame);\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \cf5 fclose\cf0 (mp3);\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \cf5 fclose\cf0 (pcm);\
+\'a0\'a0\'a0 \}\
+\'a0\'a0\'a0 \cf3 @catch\cf0  (NSException *exception) \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \cf5 NSLog\cf0 (\cf7 @"%@"\cf0 ,[exception \cf5 description\cf0 ]);\
+\'a0\'a0\'a0 \}
+\f2\fs24 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f0\fs22 \cf0 \'a0\'a0\'a0 \cf3 @finally\cf0  \{
+\f2\fs24 \
+
+\f0\fs22 //
+\f1 \'d7\'ee\'d6\'d5\'a1\'a3\'a1\'a3
+\f2\fs24 \
+
+\f0\fs22 \}
+\f2\fs24 \
+}
